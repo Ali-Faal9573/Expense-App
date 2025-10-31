@@ -37,14 +37,16 @@ class _NewExpensesState extends State<NewExpense> {
             decoration: const InputDecoration(
               prefixText: '\$ ',
               label: Text('Amount'),
-              ),
+            ),
           ),
           Row(
             children: [
               TextButton(
-                onPressed: () {}, 
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: const Text('Cancel'),
-                ),
+              ),
               ElevatedButton(
                 onPressed: () {
                   print(_titleController.text);
