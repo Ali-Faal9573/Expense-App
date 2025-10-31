@@ -12,7 +12,7 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-  final List<Expense> _registredExpenses = [
+  final List<Expense> _registeredExpenses = [
     Expense(
       title: 'Flutter Course',
       amount: 19.99,
@@ -49,7 +49,7 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           const Text('The chart'),
-          Expanded(child: ExpensesList(expenses: _registredExpenses)),
+          Expanded(child: ExpensesList(expenses: _registeredExpenses)),
         ],
       ),
     );
