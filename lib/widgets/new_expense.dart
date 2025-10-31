@@ -5,14 +5,22 @@ class NewExpense extends StatefulWidget {
 
   @override
   State<NewExpense> createState() {
-    return _NewExpensesState() ;
+    return _NewExpensesState();
   }
 }
 
 class _NewExpensesState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: const [
+          TextField(maxLength: 50,
+          decoration: InputDecoration(
+            label: Text('Title'),
+          ),)
+        ],
+      ),);
   }
 }
