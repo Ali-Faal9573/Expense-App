@@ -8,7 +8,10 @@ var kColorScheme = ColorScheme.fromSeed(
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData(useMaterial3: true, colorScheme: kColorScheme),
+      theme: ThemeData(useMaterial3: true, colorScheme: kColorScheme, appBarTheme: const AppBarTheme().copyWith(
+        backgroundColor: kColorScheme.onPrimaryContainer,
+        foregroundColor: kColorScheme.primaryContainer
+      )),
       home: Expenses(),
     ),
   );
