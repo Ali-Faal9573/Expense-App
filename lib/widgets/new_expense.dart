@@ -82,6 +82,8 @@ class _NewExpensesState extends State<NewExpense> {
 
     return LayoutBuilder(
       builder: (ctx, constraints) {
+        final width = constraints.maxWidth;
+
         return SizedBox(
           height: double.infinity,
           child: SingleChildScrollView(
@@ -89,11 +91,37 @@ class _NewExpensesState extends State<NewExpense> {
               padding: EdgeInsets.fromLTRB(16, 16, 16, keyboardSpace + 16),
               child: Column(
                 children: [
-                  TextField(
-                    controller: _titleController,
-                    maxLength: 50,
-                    decoration: const InputDecoration(label: Text('Title')),
-                  ),
+                  if (width >= 600)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: _titleController,
+                            maxLength: 50,
+                            decoration: const InputDecoration(
+                              label: Text('Title'),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 24,),
+                        Expanded(
+                          child: TextField(
+                            controller: _amountController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              prefixText: '\$ ',
+                              label: Text('Amount'),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  else
+                    TextField(
+                      controller: _titleController,
+                      maxLength: 50,
+                      decoration: const InputDecoration(label: Text('Title')),
+                    ),
                   Row(
                     children: [
                       Expanded(
